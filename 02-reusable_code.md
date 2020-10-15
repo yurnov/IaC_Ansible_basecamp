@@ -4,7 +4,7 @@
 
 Roles are ways of automatically loading certain vars_files, tasks, and handlers based on a known file structure. Grouping content by roles also allows easy sharing of roles with other users
 
-## Example Project and role structure
+## Example Project and role folders structure
 
 Project structure:
 ```
@@ -13,13 +13,13 @@ webservers.yml
 fooservers.yml
 roles/
 ├── common/
-|   ├── tasks/
-|   ├── handlers/
-|   ├── files/
-|   ├── templates/
-|   ├── vars/
-|   ├── defaults/
-|   └── meta/
+│   ├── tasks/
+│   ├── handlers/
+│   ├── files/
+│   ├── templates/
+│   ├── vars/
+│   ├── defaults/
+│   └── meta/
 └──  webservers/
     ├── tasks/
     ├── defaults/

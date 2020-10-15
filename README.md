@@ -1,6 +1,6 @@
-# IaaC (Ansible) курсу DevOsp Basecamp for Telco
+# IaaC (Ansible) module of DevOsp Basecamp for Telco
 
-## Що таке Infrastructure as Code?
+## What is Infrastructure as Code?
 
 Infrastructure as code (IaC) is the process of managing and provisioning computer data centers through machine-readable definition files, rather than physical hardware configuration or interactive configuration tools.
 
