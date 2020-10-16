@@ -19,8 +19,11 @@ ps: one of machine (controller) can be a Windows 10 machine with WSL/WSL2
 - printing hostnames together with registered variables will be a plus.
 * Create a repo in your GitHub account and commit code above
 
+Optional:
+
+- use `ansible_user` and `ansible_password` for ssh connection and store passwords for each VM in encrypred way (add vault password to README.md in this case)
+
 ## Future reading
 
 - [Ansible documentation](https://docs.ansible.com/ansible/latest/index.html)
 - Google it!
-
