@@ -15,12 +15,12 @@ ps: one of machine (controller) can be a Windows 10 machine with WSL/WSL2
 * Create playbook for:
 - invoke the role for `/etc/iaac` for hosts group `iaas`
 - invoke the role for defining variable for all hosts
-- print in loop registered variables
+- print in registered variables
 - printing hostnames together with registered variables will be a plus.
 * Create a repo in your GitHub account and commit code above
 
 ## Future reading
 
-[Ansible documentation](https://docs.ansible.com/ansible/latest/index.html)
-Google it!
+- [Ansible documentation](https://docs.ansible.com/ansible/latest/index.html)
+- Google it!
 

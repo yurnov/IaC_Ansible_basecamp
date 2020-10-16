@@ -55,5 +55,5 @@ example of more complex loop:
 ```
 
 ## Future reading
-[Playbooks conditionals](https://docs.ansible.com/ansible/latest/user_guide/playbooks_conditionals.html)
-[Playbook loops](https://docs.ansible.com/ansible/latest/user_guide/playbooks_loops.html)
+- [Playbooks conditionals](https://docs.ansible.com/ansible/latest/user_guide/playbooks_conditionals.html)
+- [Playbook loops](https://docs.ansible.com/ansible/latest/user_guide/playbooks_loops.html)

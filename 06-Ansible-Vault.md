@@ -58,5 +58,5 @@ ansible-playbook --vault-password-file my-vault-password-client.py
 
 ## Future reading
 
-[ansible-vault](https://docs.ansible.com/ansible/latest/cli/ansible-vault.html)
-[Encrypting content with Ansible Vault](https://docs.ansible.com/ansible/latest/user_guide/vault.html)
+- [ansible-vault](https://docs.ansible.com/ansible/latest/cli/ansible-vault.html)
+- [Encrypting content with Ansible Vault](https://docs.ansible.com/ansible/latest/user_guide/vault.html)
