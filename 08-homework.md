@@ -10,8 +10,8 @@ ps: one of machine (controller) can be a Windows 10 machine with WSL/WSL2
 
 * Create a inventory file with four groups, each provisioning VM should be in separate group and group named `iaas` what should include childrens from two first groups;
 * Create reusable roles for that:
-- creating a empty file `/etc/iaac` with rigths `0500`, this role should be idempodent
-- define content of `/etc/issue` as variable
+- creating a empty file `/etc/iaac` with rigths `0500`  
+- fetch a linux distro name/version  
 * Create playbook for:
 - invoke the role for `/etc/iaac` for hosts group `iaas`
 - invoke the role for defining variable for all hosts
