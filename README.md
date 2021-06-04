@@ -16,14 +16,14 @@ The IT infrastructure managed by this process comprises both physical equipment,
 | Terraform | HirashiCorp | Push          | Declarative                | Go, HCL, JSON |
 | Ansible   | RedHat      | Push          | Declarative and imparative | Python, YAML  |
 
-**Delcarative** = define WHAT end result you whant
+**Delcarative** = define WHAT end result you want
 **Imperative** = define exact steps - HOW
 
 ## Configuration managment
 
 Configuration management (CM) is a systems engineering process for establishing and maintaining consistency of a product's performance, functional, and physical attributes with its requirements, design, and operational information throughout its life.
 
-Configuration Managment allow is to automate and manage:
+Configuration Managment allows to automate and manage:
 - infrastructure/platform
 - services that run on that platform
 
