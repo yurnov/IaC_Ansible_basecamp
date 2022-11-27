@@ -9,20 +9,20 @@ Example of conditionals:
 ```
 tasks:
   - name: Register a variable, ignore errors and continue
-    command: /bin/false
+    ansible.builtin.command: /bin/false
     register: result
     ignore_errors: true
 
   - name: Run only if the task that registered the "result" variable fails
-    command: /bin/something
+    ansible.builtin.command: /bin/something
     when: result is failed
 
   - name: Run only if the task that registered the "result" variable succeeds
-    command: /bin/something_else
+    ansible.builtin.command: /bin/something_else
     when: result is succeeded
 
   - name: Run only if the task that registered the "result" variable is skipped
-    command: /bin/still/something_else
+    ansible.builtin.command: /bin/still/something_else
     when: result is skipped
 ```
 
@@ -33,7 +33,7 @@ Sometimes you want to repeat a task multiple times. In computer programming, thi
 Example of sіmple loop:
 
 ```
-- debug:
+- ansible.builtin.debug:
     mgs: "{{ item }}"
   with_items:
     - one
@@ -55,5 +55,5 @@ example of more complex loop:
 ```
 
 ## Future reading
-- [Playbooks conditionals](https://docs.ansible.com/ansible/latest/user_guide/playbooks_conditionals.html)
-- [Playbook loops](https://docs.ansible.com/ansible/latest/user_guide/playbooks_loops.html)
+- [Playbooks conditionals](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_conditionals.html)
+- [Playbook loops](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_loops.html)
