@@ -1,0 +1,6 @@
+---
+# defaults file for do_create_droplet
+droplet_size: s-1vcpu-512mb-10gb
+droplet_region: ams3
+droplet_image: ubuntu-22-04-x64
+droplet_hostname: ansible-lecture
