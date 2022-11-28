@@ -86,7 +86,7 @@ Other way is to use `import_role` or `include_role` in tasks:
 ---
 - hosts: webservers
   tasks:
-    - ansible.builtin.import_rol:
+    - ansible.builtin.import_role:
         name: example
     - ansible.builtin.include_role:
         name: example
