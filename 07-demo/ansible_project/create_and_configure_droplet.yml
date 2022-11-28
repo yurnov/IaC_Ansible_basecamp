@@ -10,15 +10,17 @@
   roles:
     - security_update
   tasks:  
-    - name: Update apt cache
-      ansible.builtin.apt:
-        update_cache: yes
 
     - name: Install apache2
       ansible.builtin.apt:
         name: apache2
         state: present
         update_cache: yes
+      register: result
+      #WA for issue with 'Could not get lock /var/lib/dpkg/lock-frontend'
+      until: result is not failed
+      retries: 5
+      delay: 15
 
     - name: Create index.html from template
       ansible.builtin.template:

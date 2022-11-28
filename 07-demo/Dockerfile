@@ -9,5 +9,7 @@ RUN apt-get update && \
 
 COPY ansible_project /opt/
 
+RUN chmod +xw /opt/
+
 USER ansible
 
