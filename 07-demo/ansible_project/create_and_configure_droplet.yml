@@ -8,8 +8,8 @@
   remote_user: root
   gather_facts: no
 
-  roles:
-    - security_update
+  # roles:
+  #   - security_update
 
   tasks:
     - name: Install apache2

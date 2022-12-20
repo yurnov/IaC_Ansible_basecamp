@@ -28,9 +28,9 @@
   community.general.ufw:
     policy: deny
     direction: in
-  with_items:
-    - { policy=deny direction=in}
-    - { policy=allow direction=out}
+  # with_items:
+  #   - { policy=deny direction=in}
+  #   - { policy=allow direction=out}
 
 - name: allow http/https connections
   community.general.ufw:
