@@ -1,0 +1,42 @@
+---
+# tasks file for do_create_droplet
+- name: Get SSH Key ID
+  uri:
+    url: https://api.digitalocean.com/v2/account/keys
+    method: GET
+    return_content: yes
+    headers: 
+      Content-Type: application/json
+      Authorization: Bearer {{ DIGITALOCEAN_TOKEN }}
+  register: do_keys_request
+
+- name: create a new droplet
+  community.digitalocean.digital_ocean_droplet:
+    state: present
+    name: "{{ droplet_hostname }}"
+    oauth_token: "{{ DIGITALOCEAN_TOKEN }}"
+    size: "{{ droplet_size }}"
+    region: "{{ droplet_region }}"
+    image: "{{ droplet_image }}"
+    ssh_keys: "{{ do_keys_request.json.ssh_keys[0].id }}"
+    wait_timeout: 500
+  register: my_droplet
+
+- ansible.builtin.set_fact:
+    droplet_ip: "{{ my_droplet.data.droplet.networks.v4[0].ip_address }}"
+
+- name: add hosts
+  add_host:
+    name: "{{ droplet_ip }}"
+    groups: "do"
+
+- name: wait for droplet boot up
+  wait_for:
+    port: 22
+    host: "{{ droplet_ip  }}"
+    timeout: 90
+    delay: 10
+
+- name: grab ssh-key
+  shell: ssh-keyscan -t ECDSA {{ droplet_ip }} >> ~/.ssh/known_hosts
+  register: my_droplet_ssh

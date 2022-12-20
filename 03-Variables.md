@@ -138,4 +138,4 @@ In general, Ansible gives precedence to variables that were defined more recentl
 
 ## Future reading
 
-- [Using variables](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html)
+- [Using variables](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html)

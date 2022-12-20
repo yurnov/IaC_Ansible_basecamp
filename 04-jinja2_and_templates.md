@@ -17,7 +17,7 @@ Example:
 
 ```
 - name: Template a file to /etc/file.conf
-  template:
+  ansible.builtin.template:
     src: /mytemplates/foo.j2
     dest: /etc/file.conf
     owner: bin
@@ -73,4 +73,4 @@ server {
 
 - [Jinja 2.11.x](https://jinja.palletsprojects.com/en/2.11.x/)
 - [Ansible template built-in module](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/template_module.html)
-- [Templating (Jinja2)](https://docs.ansible.com/ansible/latest/user_guide/playbooks_templating.html)
+- [Templating (Jinja2)](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_templating.html)

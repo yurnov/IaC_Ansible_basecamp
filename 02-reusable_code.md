@@ -86,13 +86,14 @@ Other way is to use `import_role` or `include_role` in tasks:
 ---
 - hosts: webservers
   tasks:
-    - import_role:
+    - ansible.builtin.import_role:
         name: example
-    - include_role:
+    - ansible.builtin.include_role:
         name: example
-    - debug:
+    - ansible.builtin.debug:
         msg: "after we ran our role"
 ```
 
+Difference between `import_role` or `include_role` is that `include_role` dynamically loads and executes a specified role as the task and `import_role` act much like the `role:`, so, it's more static.
 ## Additional reading: 
-- [Creating reusable playbok](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse.html)
+- [Creating reusable playbok](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse.html)

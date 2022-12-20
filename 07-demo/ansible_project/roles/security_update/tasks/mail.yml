@@ -1,0 +1,43 @@
+---
+
+- name: ensure packages
+  apt:
+    name: unattended-upgrade
+    state: present
+    update_cache: yes
+  loops:
+    - unattended-upgrade
+    - ufw  
+
+- name: security update
+  shell: sudo unattended-upgrade -d
+
+- name: enable ufw and allow ssh
+  ufw:
+    state: enabled
+    rule: limit
+    port: ssh
+    proto: tcp
+
+- name: configure default policy
+  ufw:
+    policy: deny
+    direction: in
+  with_items:
+    - { policy=deny direction=in}
+    - { policy=allow direction=out}
+
+- name: allow http/https connections
+  ufw:
+    rule: allow
+    direction: in
+    proto: tcp
+    to_port: "{{ item }}"
+  loops:
+     - 80
+     - 443
+     - 8888
+
+- name: enable ufw
+  ufw:
+    state: enabled

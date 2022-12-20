@@ -1,0 +1,39 @@
+---
+- name: Create droplet and establish communication
+  hosts: localhost ansible_connection=local
+  roles:
+    - do_create_droplet    
+
+- hosts: do
+  remote_user: root
+  gather_facts: no
+  roles:
+    - security_update
+  tasks:  
+
+    - name: Install apache2
+      ansible.builtin.apt:
+        name: apache2
+        state: present
+        update_cache: yes
+      register: result
+      #WA for issue with 'Could not get lock /var/lib/dpkg/lock-frontend'
+      until: result is not failed
+      retries: 5
+      delay: 15
+
+    - name: Create index.html from template
+      ansible.builtin.template:
+        src: index.html.j2
+        dest: /var/www/html/index.html
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Restart apache2 service
+      ansible.builtin.systemd:
+        state: restarted
+        name: apache2.service
+
+    - ansible.builtin.debug:
+        msg: "Open following in your browser: http://{{ inventory_hostname }}"
