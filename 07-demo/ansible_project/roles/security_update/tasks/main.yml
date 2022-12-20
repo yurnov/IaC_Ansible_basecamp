@@ -9,6 +9,7 @@
     - unattended-upgrade
     - ufw
   #WA for issue with 'Could not get lock /var/lib/dpkg/lock-frontend'
+  register: result
   until: result is not failed
   retries: 5
   delay: 15
