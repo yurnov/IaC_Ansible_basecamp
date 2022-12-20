@@ -5,11 +5,12 @@ RUN apt-get update && \
     python3 -m pip install ansible-core==2.13.6 && \
     groupadd -f -g 1010 ansible && \
     useradd ansible -u 1000 -g ansible -m -s /bin/bash && \
-    sudo -u ansible ansible-galaxy collection install community.digitalocean:=1.22.0
+    sudo -u ansible ansible-galaxy collection install community.digitalocean:=1.22.0 community.general:=6.1.0
 
 COPY ansible_project /opt/
 
 RUN chmod +xw /opt/
 
 USER ansible
-
+WORKDIR /opt
+CMD ["bash"]

@@ -2,25 +2,29 @@
 
 - name: ensure packages
   apt:
-    name: unattended-upgrade
+    name: "{{ item }}"
     state: present
     update_cache: yes
-  loops:
+  with_items:
     - unattended-upgrade
-    - ufw  
+    - ufw
+  #WA for issue with 'Could not get lock /var/lib/dpkg/lock-frontend'
+  until: result is not failed
+  retries: 5
+  delay: 15
 
 - name: security update
   shell: sudo unattended-upgrade -d
 
 - name: enable ufw and allow ssh
-  ufw:
+  community.general.ufw:
     state: enabled
     rule: limit
     port: ssh
     proto: tcp
 
 - name: configure default policy
-  ufw:
+  community.general.ufw:
     policy: deny
     direction: in
   with_items:
@@ -28,16 +32,15 @@
     - { policy=allow direction=out}
 
 - name: allow http/https connections
-  ufw:
+  community.general.ufw:
     rule: allow
     direction: in
     proto: tcp
     to_port: "{{ item }}"
-  loops:
+  with_items:
      - 80
      - 443
-     - 8888
 
 - name: enable ufw
-  ufw:
+  community.general.ufw:
     state: enabled
