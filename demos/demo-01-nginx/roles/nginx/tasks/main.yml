@@ -25,9 +25,3 @@
       
       
   notify: restart nginx
-
-handlers:
-  - name: restart nginx
-    service:
-      name: "{{ nginx_service }}"
-      state: restarted
