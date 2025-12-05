@@ -1,0 +1,6 @@
+# Minimal ansible-lint config to start
+skip_list:
+  - 'no-changed-when'  # example skip; adjust as we fix issues
+warn_list:
+  - experimental  # show experimental warnings
+verbosity: 0

@@ -1,37 +1,54 @@
-# IaaC (Ansible) module of DevOsp Basecamp for Telco
+# IaC Ansible Basecamp (Proposed refactor for 2025)
 
-## What is Infrastructure as Code?
+This repository contains training materials for an Ansible course. This branch/proposal modernizes the training for 2025 by:
 
-Infrastructure as code (IaC) is the process of managing and provisioning computer data centers through machine-readable definition files, rather than physical hardware configuration or interactive configuration tools.
+- Organizing lessons into per-lesson directories under `lessons/`
+- Adding a lesson template and syllabus information
+- Adding CI checks (yamllint, ansible-lint) and stubs for Molecule testing
+- Adding an example demo role with a Molecule scenario (demos/demo-01-nginx)
+- Adding lint configs and a migration plan
 
-The IT infrastructure managed by this process comprises both physical equipment, such as bare-metal servers, as well as virtual machines, and associated configuration resources. The definitions may be in a version control system. It can use either scripts or declarative definitions, rather than manual processes, but the term is more often used to promote declarative approaches.
+Quick goals
+- Make examples runnable and CI-checked
+- Use modern Ansible practices (ansible-core + collections)
+- Provide a consistent lesson format for instructors
 
-## IaC Tools
+Quick start (developer)
+1. Clone and create a virtualenv
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate
+   pip install -U pip
+   pip install ansible-core ansible-lint yamllint molecule docker molecule-docker
+   ```
+2. Install collections/roles referenced in `requirements.yml`:
+   ```bash
+   ansible-galaxy collection install -r requirements.yml
+   ansible-galaxy role install -r requirements.yml || true
+   ```
 
-| Tool      | Released by | Method        | Approach                   | Comments      |
-|-----------|-------------|---------------|----------------------------|---------------|
-| Chef      | Chef        | Pull          | Delcarative and imperative | Ruby          |
-| Puppet    | Puppet      | Pull          | Declarative                | Ruby          |
-| SaltStack | SaltStack   | Push and Pull | Delcarative and imparative | Python        |
-| Terraform | HirashiCorp | Push          | Declarative                | Go, HCL, JSON |
-| Ansible   | RedHat      | Push          | Declarative and imparative | Python, YAML  |
+Repository layout (proposed)
+- lessons/
+  - 00-intro-yaml/README.md
+  - 01-intro-ansible/README.md
+  - ...
+- demos/
+  - demo-01-nginx/
+    - roles/nginx/...
+    - molecule/...
+- .github/workflows/ci.yml
+- .yamllint
+- .ansible-lint
+- requirements.yml
+- MIGRATION.md (maps original files -> new locations)
 
-**Delcarative** = define WHAT end result you want
-**Imperative** = define exact steps - HOW
+How I suggest we proceed
+1. Review this proposed content (below).
+2. I open a PR implementing these files and moving/renaming the existing lesson files into `lessons/` directories (I can either move them as-is or convert them to the lesson template format).
+3. Iterate on content edits or run CI & fix lints.
 
-## Configuration managment
+If you want, I can:
+- Open the PR that implements everything here (including moving all lesson files).
+- Or open only the CI + template + demo PR first, then follow with the content migration PR.
 
-Configuration management (CM) is a systems engineering process for establishing and maintaining consistency of a product's performance, functional, and physical attributes with its requirements, design, and operational information throughout its life.
-
-Configuration Managment allows to automate and manage:
-- infrastructure/platform
-- services that run on that platform
-
-## Ansible vs Terraform
-
-| Ansible             | Terraform                      |
-|---------------------|--------------------------------|
-|Mainly configuration tool|Mainly infrastructure provisioning tool|
-|more mature          |relatively new                  |
-written in Python     |written in Go                   |
-|better for configuring that infrastructure|better for infrastructure|
+Tell me which you prefer and if you'd like me to include full converted lesson contents in the PR.
