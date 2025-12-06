@@ -101,7 +101,7 @@ will ensure that systemd service nginx is started, that means that service will 
 
 In addition to official modules you may use a various of comunity supported or write your own.
 
-Be aware that correct syntax is `collection_name.module_name` and can be  
+Be aware that correct syntax is `collection_name.module_name` (Fully Qualified Collection Name or FQCN), for example `ansible.builtin.copy` or `community.general.docker_container`.
 
 ### Tasks
 
