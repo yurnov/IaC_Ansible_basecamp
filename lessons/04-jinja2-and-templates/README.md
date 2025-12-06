@@ -71,6 +71,6 @@ server {
 
 ## Future reading
 
-- [Jinja 2.11.x](https://jinja.palletsprojects.com/en/2.11.x/)
+- [Jinja 3.1.x Documentation](https://jinja.palletsprojects.com/en/stable/)
 - [Ansible template built-in module](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/template_module.html)
 - [Templating (Jinja2)](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_templating.html)

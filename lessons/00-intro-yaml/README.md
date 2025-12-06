@@ -59,6 +59,6 @@ Examples of nesting:
 
 ## Future reading
 
-- [YAML Essentials Udemy free course](https://www.udemy.com/course/yaml-essentials/)
+- [YAML Tutorial - Learn YAML in 10 Minutes](https://www.tutorialspoint.com/yaml/index.htm)
 - [YAML official site](https://yaml.org/)
 - Google it!

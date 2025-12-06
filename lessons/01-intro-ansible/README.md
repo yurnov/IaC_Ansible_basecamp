@@ -18,7 +18,7 @@
 - What makes Ansible different from other managment software is that Ansible is fully agent-less and use SSH infrastructure.
 - Ansible project was founded in 2013 and bought by RedHat in 2015.
 
-[Ansible quckstart guide](https://www.ansible.com/resources/videos/quick-start-video)
+[Ansible Getting Started Guide](https://docs.ansible.com/ansible/latest/getting_started/index.html)
 
 ## Why Ansible
 
