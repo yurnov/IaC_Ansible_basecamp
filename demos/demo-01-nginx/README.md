@@ -8,7 +8,7 @@ Quick steps to run locally (Linux with Docker):
    python -m venv .venv
    source .venv/bin/activate
    pip install -U pip
-   pip install molecule docker molecule-docker ansible-core
+   pip install docker molecule molecule-plugins[container] ansible-core
    ```
 2. Run molecule:
    ```bash
