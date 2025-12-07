@@ -1,0 +1,10 @@
+---
+galaxy_info:
+  author: your-name
+  description: Simple nginx role for demo purposes
+  license: MIT
+  min_ansible_version: 2.14
+  platforms:
+    - name: ubuntu
+      versions:
+        - noble
